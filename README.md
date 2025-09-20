@@ -199,24 +199,42 @@ The test suite includes:
 ## Screenshots
 
 ### Login Page
-![Login Page] <img width="865" height="743" alt="image" src="https://github.com/user-attachments/assets/1106e6a2-b71d-480c-b781-cd8cfea580d6" />
+<img width="865" height="743" alt="image" src="https://github.com/user-attachments/assets/1106e6a2-b71d-480c-b781-cd8cfea580d6" />
 
 *User authentication with role-based access*
 
 ### Admin Dashboard
-![Admin Dashboard](./screenshots/admin-dashboard.png)
+<img width="616" height="806" alt="image" src="https://github.com/user-attachments/assets/f685248b-bab5-4885-8369-68c516a1b583" />
+
 *Admin view with full inventory management capabilities*
 
 ### User Dashboard
-![User Dashboard](./screenshots/user-dashboard.png)
+<img width="1907" height="839" alt="image" src="https://github.com/user-attachments/assets/fec04ce5-fc32-4436-a06b-b78fa96ba94c" />
+
 *Regular user view for browsing and purchasing sweets*
 
-### Add/Edit Sweet Modal
-![Sweet Management](./screenshots/sweet-modal.png)
+### Buy sweet
+<img width="1031" height="551" alt="image" src="https://github.com/user-attachments/assets/5fcb14be-cf6c-4b78-a8e0-d2fa5ba08bb3" />
+
+### After succesfull purchase
+<img width="688" height="411" alt="image" src="https://github.com/user-attachments/assets/76c0db63-3831-42f2-b1c2-b7bc68728047" />
+
+### Admin dashboard
+<img width="1916" height="854" alt="image" src="https://github.com/user-attachments/assets/30722456-6fa7-4126-aee2-20dfa1fa3bd7" />
+
+
+### Add Sweet Modal
+<img width="457" height="470" alt="image" src="https://github.com/user-attachments/assets/0fee9b4d-672c-4df3-87b0-d92cfe6237b5" />
 *Admin interface for managing sweet inventory*
 
+
+### Edit Sweet details
+<img width="539" height="531" alt="image" src="https://github.com/user-attachments/assets/7c1de03f-aa9c-4323-a40f-8d1a94de4406" />
+
+
 ### Search & Filter
-![Search Functionality](./screenshots/search.png)
+<img width="1268" height="585" alt="image" src="https://github.com/user-attachments/assets/ff709441-c920-4e43-8933-b001003c59c4" />
+
 *Real-time search and filtering capabilities*
 
 ## My AI Usage
