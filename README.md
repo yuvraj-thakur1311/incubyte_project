@@ -144,15 +144,6 @@ npm run seed
 
 Use these credentials to test the application:
 
-### Admin User
-- **Email**: `admin@sweetshop.com`
-- **Password**: `admin123`
-- **Capabilities**: Full access to all features including adding, editing, deleting sweets and restocking inventory
-
-### Regular User
-- **Email**: `user@sweetshop.com`
-- **Password**: `user123`
-- **Capabilities**: Can browse sweets, search, and make purchases
 
 ### Creating Your Own Accounts
 You can also register new accounts through the registration form. Admin privileges are assigned manually through the database.
@@ -344,7 +335,9 @@ Co-authored-by: Claude AI <claude@anthropic.com>"
 The application is deployed and accessible at:
 - **Frontend**: https://incubyte-proj-git-cce231-yuvraj-singh-thakurs-projects-be583b3f.vercel.app/
 - **Backend**: https://backend-id05.onrender.com
-- **Login Credentials(Admin)** - mail - admin@example.com
-                                 pass - adminpassword
+- **Login Credentials(Admin)** 
+              - *Email*: ` admin@example.com`
+              - *Password*: `adminpassword`
+              - *Capabilities*: Full access to all features including adding, editing, deleting sweets and restocking inventory
 
 ---
