@@ -323,6 +323,11 @@ sweet-shop-management/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+
+### Test report 
+file:///E:/incubyte_project/test-report.html
+
+
 ### Commit Message Format
 When using AI tools, include co-authorship:
 ```
@@ -333,10 +338,6 @@ Used AI to optimize search algorithms and implement debouncing.
 
 Co-authored-by: Claude AI <claude@anthropic.com>"
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Deployment
 
