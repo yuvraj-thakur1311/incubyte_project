@@ -556,6 +556,6 @@ describe('Integration Tests', () => {
         const response = await (0, supertest_1.default)(app_1.default)
             .options('/api/auth/register')
             .expect(204);
-        expect(response.headers['access-control-allow-origin']).toBe('http://localhost:5173');
+        expect(response.headers['access-control-allow-origin']).toBe('https://incubyte-project-847thmnf4.vercel.app/');
     });
 });

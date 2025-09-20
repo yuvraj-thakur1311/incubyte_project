@@ -680,6 +680,6 @@ describe('Integration Tests', () => {
       .options('/api/auth/register')
       .expect(204);
 
-    expect(response.headers['access-control-allow-origin']).toBe('http://localhost:5173');
+    expect(response.headers['access-control-allow-origin']).toBe("https://incubyte-project-847thmnf4.vercel.app/");
   });
 });
