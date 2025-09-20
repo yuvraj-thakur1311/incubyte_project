@@ -13,6 +13,8 @@ import {
 } from "../redux/features/sweets/sweetsSlice";
 import { Search, Plus, Edit, Trash2, ShoppingCart, Package, AlertCircle, User, LogOut, Bell, Settings } from "lucide-react";
 import { toast } from "sonner";
+import { AlertTriangle } from "lucide-react";
+
 export const AdminDashboard = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -22,6 +24,7 @@ export const AdminDashboard = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingSweet, setEditingSweet] = useState(null);
   const [filter, setFilter] = useState("all");
+  const [deleteConfirm, setDeleteConfirm] = useState(null);
   
   const isAdmin = user?.role === "admin";
 
@@ -35,6 +38,25 @@ export const AdminDashboard = () => {
     }
   }, [error, dispatch]);
 
+  const handleDelete = (sweet) => {
+     setDeleteConfirm(sweet);
+
+};
+
+const confirmDelete = () => {
+  if (deleteConfirm) {
+    dispatch(deleteSweet(deleteConfirm._id))
+      .unwrap()
+      .then(() => {
+        toast.success(`${deleteConfirm.name} deleted successfully!`);
+        setDeleteConfirm(null);
+      })
+      .catch(() => {
+        toast.error("Failed to delete sweet");
+        setDeleteConfirm(null);
+      });
+  }
+};
   const handleSearch = (searchTerm) => {
     setSearch(searchTerm);
     if (searchTerm.trim()) {
@@ -63,20 +85,6 @@ export const AdminDashboard = () => {
     .catch(() => {
       toast.error("Failed to restock sweet");
     });
-};
-
-
-  const handleDelete = (sweetId) => {
-  if (window.confirm("Are you sure you want to delete this sweet?")) {
-    dispatch(deleteSweet(sweetId))
-      .unwrap()
-      .then(() => {
-        toast.success("Sweet deleted!");
-      })
-      .catch(() => {
-        toast.error("Failed to delete sweet");
-      });
-  }
 };
 
 const handleAdd = (sweetData) => {
@@ -337,6 +345,15 @@ const handleAdd = (sweetData) => {
           onUpdate={handleUpdate}
         />
       )}
+
+    {deleteConfirm && (
+      <DeleteConfirmationModal
+        sweet={deleteConfirm}
+        onConfirm={confirmDelete}
+        onCancel={() => setDeleteConfirm(null)}
+      />
+    )}
+
     </div>
   );
 };
@@ -404,7 +421,7 @@ const SweetCard = ({ sweet, isAdmin, onPurchase, onRestock, onEdit, onDelete }) 
               <Edit className="w-4 h-4" />
             </button>
             <button
-              onClick={() => onDelete(sweet._id)}
+              onClick={() => onDelete(sweet)}
               className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition-colors shadow-sm hover:shadow"
               title="Delete Sweet"
             >
@@ -424,6 +441,7 @@ const SweetCard = ({ sweet, isAdmin, onPurchase, onRestock, onEdit, onDelete }) 
             {isOutOfStock ? "Out of Stock" : "Purchase"}
           </button>
         )}
+      
       </div>
     </div>
   );
@@ -559,6 +577,26 @@ const AddSweetModal = ({ onClose, onUpdate }) => {
     </div>
   );
 };
+
+const DeleteConfirmationModal = ({ sweet, onConfirm, onCancel }) => {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="bg-white rounded-lg p-6 w-96">
+        <h2 className="text-lg font-bold mb-4">Confirm Delete</h2>
+        <p>Are you sure you want to delete <strong>{sweet.name}</strong>?</p>
+        <div className="mt-6 flex justify-end gap-2">
+          <button onClick={onCancel} className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">
+            Cancel
+          </button>
+          <button onClick={onConfirm} className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 // Enhanced Edit Sweet Modal Component
 const EditSweetModal = ({ sweet, onClose, onUpdate }) => {
