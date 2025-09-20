@@ -342,9 +342,9 @@ Co-authored-by: Claude AI <claude@anthropic.com>"
 ## Deployment
 
 The application is deployed and accessible at:
-- **Frontend**: [https://your-app.vercel.app](https://your-app.vercel.app)
-- **Backend**: [https://your-api.herokuapp.com](https://your-api.herokuapp.com)
+- **Frontend**: https://incubyte-proj-git-cce231-yuvraj-singh-thakurs-projects-be583b3f.vercel.app/
+- **Backend**: https://backend-id05.onrender.com
+- **Login Credentials(Admin)** - mail - admin@example.com
+                                 pass - adminpassword
 
 ---
-
-**Note**: This project was developed as part of a technical assessment, demonstrating full-stack development capabilities, testing practices, and effective AI tool usage in modern software development workflows.
