@@ -1,6 +1,6 @@
 // Optional: Centralized API calls for auth - you can import instead of raw fetch within slice if preferred
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = "https://backend-id05.onrender.com/";
 
 export const loginApi = async (email, password) => {
   const res = await fetch(`${API_URL}/auth/login`, {
