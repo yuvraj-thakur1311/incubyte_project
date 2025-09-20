@@ -10,7 +10,7 @@ import { authenticateJWT } from './middlewares/authMiddleware';
 const app: Application = express();
 
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://incubyte-project-847thmnf4.vercel.app/", 
   credentials: true,     
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
