@@ -8,34 +8,35 @@ import { authenticateJWT } from './middlewares/authMiddleware';
 
 const app: Application = express();
 
-// CORS configuration - FIXED
+// Get allowed origins from environment variable or use defaults
+const getAllowedOrigins = () => {
+  const envOrigins = process.env.CORS_ORIGINS;
+  
+  if (envOrigins) {
+    return envOrigins.split(',').map(origin => origin.trim());
+  }
+  
+  return [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://incubyte-project-847thmnf4.vercel.app',
+    'https://incubyte-proj-git-cce231-yuvraj-singh-thakurs-projects-be583b3f.vercel.app'
+  ];
+};
+
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (error: Error | null, allow?: boolean) => void) {
-    // Allow requests with no origin (like mobile apps or Postman)
+    const allowedOrigins = getAllowedOrigins();
+    
     if (!origin) return callback(null, true);
     
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:3000',
-      'https://incubyte-project-847thmnf4.vercel.app',  // Remove trailing slash
-      'https://incubyte-proj-git-cce231-yuvraj-singh-thakurs-projects-be583b3f.vercel.app',
-      // Add your current deployment URL
-      // You can also use regex patterns for dynamic Vercel URLs
-      /https:\/\/incubyte-proj.*\.vercel\.app$/
-    ];
-    
-    const isAllowed = allowedOrigins.some(allowedOrigin => {
-      if (typeof allowedOrigin === 'string') {
-        return allowedOrigin === origin;
-      } else {
-        return allowedOrigin.test(origin);
-      }
-    });
-    
-    if (isAllowed) {
+    if (allowedOrigins.includes(origin) || 
+        /https:\/\/incubyte-proj.*\.vercel\.app$/.test(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.log(`CORS blocked origin: ${origin}`);
+      console.log(`Allowed origins: ${allowedOrigins.join(', ')}`);
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
     }
   },
   credentials: true,
@@ -47,8 +48,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Add explicit OPTIONS handler for preflight requests
-app.options('*', cors(corsOptions));
+// Remove the problematic line: app.options('*', cors(corsOptions));
+// CORS middleware already handles OPTIONS requests
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
