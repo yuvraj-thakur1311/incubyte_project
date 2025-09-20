@@ -199,7 +199,8 @@ The test suite includes:
 ## Screenshots
 
 ### Login Page
-![Login Page](./screenshots/login.png)
+![Login Page] <img width="865" height="743" alt="image" src="https://github.com/user-attachments/assets/1106e6a2-b71d-480c-b781-cd8cfea580d6" />
+
 *User authentication with role-based access*
 
 ### Admin Dashboard
