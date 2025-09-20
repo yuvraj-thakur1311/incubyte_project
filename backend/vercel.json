@@ -1,7 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "dist/server.js", "use": "@vercel/node" }
+    {
+      "src": "dist/server.js",
+      "use": "@vercel/node",
+      "excludeFiles": [
+        "src/__tests__/**",
+        "tests/**",
+        "*.md",
+        "docs/**",
+        "scripts/**"
+      ]
+    }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "dist/server.js" }
