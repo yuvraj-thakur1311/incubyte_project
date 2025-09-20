@@ -1,0 +1,14 @@
+# Auto-detect text files and normalize line endings to LF in repo
+* text=auto
+
+# Explicitly set line endings for shell scripts as LF (Linux style)
+*.sh text eol=lf
+
+# Explicitly set batch files as CRLF (Windows style)
+*.bat text eol=crlf
+
+# Treat image files as binary to avoid line ending conversion
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary

@@ -5,12 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "tsx src/server.ts",
     "build": "tsc",
-    "test": "jest ",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "dev": "nodemon src/server.ts"
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
